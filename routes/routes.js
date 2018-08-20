@@ -1,13 +1,13 @@
 module.exports = function (app) {
 
     app.get('/', function (req, res) {
-       let sql = `SELECT products.title,
-        products.image, 
+       let sql = `SELECT products.title, 
         products.description, 
         products.price, 
         products.created_unix as "unix", 
         products_category.category_name as "category",
-        products_manufacturer.name as "manufacturer"
+        products_manufacturer.name as "manufacturer",
+        products.image
         FROM products
         INNER JOIN products_category ON products.category_fk = products_category.id
         INNER JOIN products_manufacturer ON products.manufacturer_fk = products_manufacturer.id
@@ -18,7 +18,6 @@ module.exports = function (app) {
         // INNER JOIN billede ON fk_billede_id = billede_id;`;
     
         db.query(sql, function (err, result) {
-            console.log(result);
             res.send(result);
         })
     });
