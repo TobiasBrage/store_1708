@@ -4,17 +4,29 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>template - index</title>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Store - index</title>
     </head>
     <body>
-        <ul>
-            <% navPages.forEach(function(navData) { %>
-                <li>
-                    <a href="<%= navData.route %>"><%= navData.title %></a>
-                </li>
-            <% }) %>
+        <ul id="header">
+            <li>
+                <ul id="navContainer">
+                    <li class="navItem">
+                        <a class="navAnchor" href="/">Hjem</a>
+                    </li>
+                    <li class="navItem">
+                        <a class="navAnchor" href="/produkter">Produkter</a>
+                    </li>
+                    <li class="navItem">
+                        <input type="text" id="srcInput" placeholder="Søg efter produkter her">
+                        <input type="button" id="srcSubmit" value="Søg">
+                        <div id="srcResults">
+
+                        </div>
+                    </li>
+                </ul>
+            </li>
         </ul>
-        <h1>index title</h1>
-        <% include ../partials/footer %>
+        <script src="js/index.js"></script>
     </body>
 </html>
